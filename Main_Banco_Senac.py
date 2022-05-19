@@ -10,10 +10,10 @@ def cadastro(id_Conta, nome, sobrenome, cpf, saldo, limite):
     return(objeto_conta, objeto_cliente)
 
 def saque(conta, valor):
-    conta['saldo'] -= valor
+    conta.saldo -= valor
 
 def deposito(conta, valor):
-    conta['saldo'] += valor
+    conta.saldo += valor
 
 def extrato(conta):
     print(f'##########################################################\nAtualizado em: {datetime.now()}\nConta Número: {conta.numero}\nCliente: {conta.titular}\nSaldo Atual: {conta.saldo}\n##########################################################')
@@ -48,22 +48,49 @@ def inicio():
             print("Opção inválida! Selecione uma opção válida.")
 
 def operações(conta):
-    init_operacao = int(input(f'Escolha uma opção:\n   1 - Sacar\n   2 - Depositar\n   3 - Extrato\n   4 - Sair'))
+    
+    on_ops = 1
+    while on_ops == 1:
+        init_operacao = int(input(f'##########################################################\nEscolha uma opção:\n   1 - Sacar\n   2 - Depositar\n   3 - Extrato\n   4 - Sair\n##########################################################'))
 
-    if init_operacao == 1:
-        pass
-    
-    elif init_operacao == 2:
-        pass
+        if init_operacao == 1:
+            valor = float(input("Digite o valor a ser sacado: "))
+            saque(conta,valor)
+            outra_op = int(input("Se desejar fazer outra operação digite 1, caso contrario digite 2"))
+            if outra_op == 2:
+                on_ops = 0
+                print("Voltando ao menu principal...")
+                inicio()
+            else:
+                on_ops = 1
 
-    elif init_operacao == 3:
-        extrato(conta)
-    
-    elif init_operacao == 4:
-        print("Saindo...")
-        exit
-    
-    else:
-        print("Opção inválida! Selecione uma opção válida.")
+        elif init_operacao == 2:
+            valor = float(input("Digite o valor a ser depositado: "))
+            deposito(conta,valor)
+            outra_op = int(input("Se desejar fazer outra operação digite 1, caso contrario digite 2"))
+            if outra_op == 2:
+                on_ops = 0
+                print("Voltando ao menu principal...")
+                inicio()
+            else:
+                on_ops = 1
+
+        elif init_operacao == 3:
+            extrato(conta)
+            outra_op = int(input("Se desejar fazer outra operação digite 1, caso contrario digite 2"))
+            if outra_op == 2:
+                on_ops = 0
+                print("Voltando ao menu principal...")
+                inicio()
+            else:
+                on_ops = 1
+
+        elif init_operacao == 4:
+            print("Saindo...")
+            on_ops = 0
+            exit
+
+        else:
+            print("Opção inválida! Selecione uma opção válida.")
 
 inicio()
