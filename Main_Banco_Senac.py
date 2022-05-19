@@ -1,4 +1,4 @@
-import datetime
+from datetime import date
 import Classes
 
 def logar():
@@ -22,7 +22,7 @@ def inicio():
             on_init = 0
         
         elif init_opcao == 2:
-            numeroConta = datetime.datetime
+            numeroConta = date.today()
             nome = input("Digite seu nome: ")
             saldo = float(input("Digite a quantia que deseja para abrir a conta: "))
             limite = float(input("Digite o limite que você deseja: "))
