@@ -4,9 +4,9 @@ import Classes
 def logar():
     print('Não disponível no momento')
 
-def cadastro(id_Conta, nome, saldo, limite):
+def cadastro(id_Conta, nome, sobrenome, cpf, saldo, limite):
     objeto_conta = Classes.Conta(id_Conta, nome, saldo, limite)
-    print(objeto_conta)
+    objeto_cliente = Classes.Cliente(nome,sobrenome,cpf)
 
 
 def inicio():
@@ -24,9 +24,11 @@ def inicio():
         elif init_opcao == 2:
             numeroConta = f'{datetime.now().strftime("%Y")}-01'
             nome = input("Digite seu nome: ")
+            sobrenome = input("Digite seu sobrenome: ")
+            cpf = input("Digite seu CPF: ")
             saldo = float(input("Digite a quantia que deseja para abrir a conta: "))
             limite = float(input("Digite o limite que você deseja: "))
-            cadastro(numeroConta,nome,saldo, limite)
+            cadastro(numeroConta,nome,sobrenome,cpf,saldo, limite)
             on_init = 0
         
         elif init_opcao == 3:
