@@ -1,8 +1,6 @@
-import Classes
-
 def logar():
-    print("Não disponível no momento")
+    print('Não disponível no momento')
 
 def cadastro():
-    print("cadastrado")
+    print('cadastrado')
 
