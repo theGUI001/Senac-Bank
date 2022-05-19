@@ -51,12 +51,12 @@ def operações(conta):
     
     on_ops = 1
     while on_ops == 1:
-        init_operacao = int(input(f'##########################################################\nEscolha uma opção:\n   1 - Sacar\n   2 - Depositar\n   3 - Extrato\n   4 - Sair\n##########################################################'))
+        init_operacao = int(input(f'##########################################################\nEscolha uma opção:\n   1 - Sacar\n   2 - Depositar\n   3 - Extrato\n   4 - Sair\n##########################################################\n'))
 
         if init_operacao == 1:
             valor = float(input("Digite o valor a ser sacado: "))
             saque(conta,valor)
-            outra_op = int(input("Se desejar fazer outra operação digite 1, caso contrario digite 2"))
+            outra_op = int(input("Se desejar fazer outra operação digite 1, caso contrario digite 2\n"))
             if outra_op == 2:
                 on_ops = 0
                 print("Voltando ao menu principal...")
@@ -67,7 +67,7 @@ def operações(conta):
         elif init_operacao == 2:
             valor = float(input("Digite o valor a ser depositado: "))
             deposito(conta,valor)
-            outra_op = int(input("Se desejar fazer outra operação digite 1, caso contrario digite 2"))
+            outra_op = int(input("Se desejar fazer outra operação digite 1, caso contrario digite 2\n"))
             if outra_op == 2:
                 on_ops = 0
                 print("Voltando ao menu principal...")
@@ -77,7 +77,7 @@ def operações(conta):
 
         elif init_operacao == 3:
             extrato(conta)
-            outra_op = int(input("Se desejar fazer outra operação digite 1, caso contrario digite 2"))
+            outra_op = int(input("Se desejar fazer outra operação digite 1, caso contrario digite 2\n"))
             if outra_op == 2:
                 on_ops = 0
                 print("Voltando ao menu principal...")
