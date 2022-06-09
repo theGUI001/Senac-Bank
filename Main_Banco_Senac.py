@@ -1,5 +1,7 @@
 from datetime import datetime
 import Classes
+import os
+import time
 
 historico_ops = []
 
@@ -31,10 +33,13 @@ def extrato(conta):
 
 
 def historico(hist):
+    os.system('cls')
     print("##########################################################")
     for x in hist:
         print(x)
     print("##########################################################")
+    time.sleep(10)
+    os.system('cls')
 
 
 def inicio():
@@ -47,9 +52,11 @@ def inicio():
             f'Escolha uma opção:\n   1 - Logar\n   2 - Cadastrar\n   3 - Sair\n##########################################################\n'))
 
         if init_operacao == 1:
+            os.system('cls')
             logar()
 
         elif init_operacao == 2:
+            os.system('cls')
             numeroConta = f'{datetime.now().strftime("%Y")}-01'
             nome = input("Digite seu nome: ")
             sobrenome = input("Digite seu sobrenome: ")
@@ -61,6 +68,7 @@ def inicio():
                 numeroConta, nome, sobrenome, cpf, saldo, limite)
             operações(objeto_conta)
             on_init = 0
+            os.system('cls')
 
         elif init_operacao == 3:
             print("Saindo...")
@@ -82,6 +90,7 @@ def operações(conta):
             saque(conta, valor)
             outra_op = int(
                 input("Se desejar fazer outra operação digite 1, caso contrario digite 2\n"))
+            os.system('cls')
             if outra_op == 2:
                 on_ops = 0
                 print("Voltando ao menu principal...")
@@ -94,6 +103,7 @@ def operações(conta):
             deposito(conta, valor)
             outra_op = int(
                 input("Se desejar fazer outra operação digite 1, caso contrario digite 2\n"))
+            os.system('cls')
             if outra_op == 2:
                 on_ops = 0
                 print("Voltando ao menu principal...")
@@ -105,6 +115,7 @@ def operações(conta):
             extrato(conta)
             outra_op = int(
                 input("Se desejar fazer outra operação digite 1, caso contrario digite 2\n"))
+            os.system('cls')
             if outra_op == 2:
                 on_ops = 0
                 print("Voltando ao menu principal...")
@@ -113,6 +124,7 @@ def operações(conta):
                 on_ops = 1
 
         elif init_operacao == 4:
+            os.system('cls')
             historico(historico_ops)
             if outra_op == 2:
                 on_ops = 0
