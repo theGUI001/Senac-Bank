@@ -31,8 +31,10 @@ def extrato(conta):
 
 
 def historico(hist):
+    print("##########################################################")
     for x in hist:
-        print(x, '\n')
+        print(x)
+    print("##########################################################")
 
 
 def inicio():
